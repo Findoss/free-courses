@@ -5,14 +5,12 @@
 /**
  * Функция filter() сключает из входной строки заданные символы в любом регистре.
  * @param {String} string Фильтруемая строка
- * @param {...char} filterChars Символы, используемые в качестве правил фильтра. 
+ * @param {...char} filterChars Символы, используемые в качестве правил фильтра.
  * @returns {String} Возвращает отфильтрованную строку
  */
 function filter(string, ...filterChars) {
-  const excluding = filterChars.reduce((previousValue, currentValue) =>  {
-    return `${previousValue}|${currentValue}`;
-  });
-  return string.replace(new RegExp(excluding, 'gi'),'');
-};
+  const excluding = filterChars.reduce((previousValue, currentValue) => `${previousValue}|${currentValue}`);
+  return string.replace(new RegExp(excluding, 'gi'), '');
+}
 
-process.stdout.write(filter(process.argv[process.argv.length-1], 'Р', 'К', 'Н'));
+process.stdout.write(filter(process.argv[process.argv.length - 1], 'Р', 'К', 'Н'));
